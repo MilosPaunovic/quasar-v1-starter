@@ -16,7 +16,7 @@ Contact [@MilosPaunovic](https://github.com/MilosPaunovic) if you need any addit
 
 ### Start in DEV mode
 
->  Change ENV to be development or production
+>  Change ENV to be local
 
 ```bash
 npm run dev:ENV
