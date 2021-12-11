@@ -23,6 +23,7 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://v1.quasar.dev/quasar-cli/boot-files
     boot: [
+      'notifications',
       'axios',
       'sentry',
     ],
@@ -89,7 +90,14 @@ module.exports = function (/* ctx */) {
     framework: {
       iconSet: 'material-icons', // Quasar icon set
       lang: 'en-us', // Quasar language pack
-      config: {},
+      config: {
+        loadingBar: {
+          skipHijack: true,
+          position: 'top',
+          color: 'primary',
+          size: '3px',
+        },
+      },
 
       // Possible values for "importStrategy":
       // * 'auto' - (DEFAULT) Auto-import needed Quasar components & directives
@@ -104,7 +112,7 @@ module.exports = function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['LoadingBar', 'Notify'],
     },
 
     // animations: 'all', // --- includes all animations
