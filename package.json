@@ -6,10 +6,15 @@
   "author": "Milos Paunovic <paun992@hotmail.com>",
   "private": true,
   "scripts": {
+    "generator": "sh generator.sh",
+
     "lint": "eslint . --ext .js,.vue --fix",
+
     "dev:local": "cross-env ENVIRONMENT=local quasar dev",
+
     "prebuild:development": "npm run lint",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
+
     "prebuild:production": "npm run lint",
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
