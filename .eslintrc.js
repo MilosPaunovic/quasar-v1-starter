@@ -63,8 +63,10 @@ module.exports = {
     'prefer-promise-reject-errors': 'off',
     'func-names': 'off',
 
+    // Allow console only during development
+    "no-console": process.env.DEBUGGING ? "off" : "error",
 
-    // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    // Allow debugger only during development
+    'no-debugger': process.env.DEBUGGING ? 'off' : 'error'
   }
-}
+};
