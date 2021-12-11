@@ -7,5 +7,5 @@
     "typescript",
     "vue"
   ],
-  "vetur.experimental.templateInterpolationService": false
+  "vetur.experimental.templateInterpolationService": false,
 }
