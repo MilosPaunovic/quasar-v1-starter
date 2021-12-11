@@ -1,23 +1,32 @@
 {
   "name": "starter",
   "version": "0.0.1",
-  "description": "A Quasar Framework V1 template for quickly starting Lakeside R&D projects.",
+  "description": "Quasar template for quickly starting Lakeside R&D projects.",
   "productName": "Starter",
   "author": "Milos Paunovic <paun992@hotmail.com>",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "lint": "eslint . --ext .js,.vue --fix",
+
+    "dev:local": "cross-env ENVIRONMENT=local quasar dev",
+    
+    "prebuild:development": "npm run lint",
+    "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
+    
+    "prebuild:production": "npm run lint",
+    "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "dotenv": "^10.0.0",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
     "babel-eslint": "^10.0.1",
+    "cross-env": "^7.0.3",
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",

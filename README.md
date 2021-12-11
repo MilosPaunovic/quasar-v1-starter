@@ -1,26 +1,29 @@
-# Quasar App (template)
+# Starter
 
-A Quasar Framework app
+Quasar template for quickly starting Lakeside R&D projects.
 
-## Install the dependencies
+### Install the dependencies
+
 ```bash
-npm install
+npm i @quasar/cli && npm i --legacy-peer-deps
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Create environment files
+
+You're gonna need to create environment files with values as shown in `variables/.env.example` file in order to properly start or deploy the application. Contact [@MilosPaunovic](https://github.com/MilosPaunovic) if you need any help with it.
+
+### Start in DEV mode
+
+>  Change ENV to be development or production
+
 ```bash
-quasar dev
+npm run dev:ENV
 ```
 
-### Lint the files
-```bash
-npm run lint
-```
+### Build for servers
 
-### Build the app for production
-```bash
-quasar build
-```
+>  Change ENV to be development or production
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).
+```bash
+npm run build:ENV
+```
