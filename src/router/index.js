@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import { USER_SERVICE } from 'src/services/user';
 import routes from './routes';
-
-import { USER_SERVICE } from '../services/user';
 
 Vue.use(VueRouter);
 
