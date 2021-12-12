@@ -34,7 +34,7 @@
       <template v-slot:append>
         <q-icon
           @click="passwordVisible = !passwordVisible"
-          :name="passwordVisible ? 'visibility_off' : 'visibility'"
+          :name="passwordVisible ? icons.visibilityOff : icons.visibility"
           class="cursor-pointer"
           data-cy="register__password_visibility"
         />
@@ -64,10 +64,12 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { matVisibility, matVisibilityOff } from '@quasar/extras/material-icons';
 
 export default {
   name: 'Register',
   data: () => ({
+    icons: { visibility: undefined, visibilityOff: undefined },
     user: { name: undefined, email: undefined, password: undefined },
     passwordVisible: false,
   }),
@@ -76,6 +78,10 @@ export default {
   },
   methods: {
     ...mapActions({ register: 'auth/register' }),
+  },
+  created() {
+    this.icons.visibility = matVisibility;
+    this.icons.visibilityOff = matVisibilityOff;
   },
 };
 </script>

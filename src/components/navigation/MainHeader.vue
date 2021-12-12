@@ -22,7 +22,7 @@
       <Button
         @click="logout"
         :loading="isLoading"
-        icon="logout"
+        :icon="icons.logout"
         flat
         data-cy="header__logout_button"
       >
@@ -34,10 +34,12 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { matLogout } from '@quasar/extras/material-icons';
 import { version } from '../../../package.json';
 
 export default {
   name: 'DesktopHeader',
+  data: () => ({ icons: { logout: undefined } }),
   computed: {
     ...mapState({ isLoading: (state) => state.auth.isLoading }),
     debbuging: () => process.env.DEBUGGING,
@@ -45,6 +47,9 @@ export default {
   },
   methods: {
     ...mapActions({ logout: 'auth/logout' }),
+  },
+  created() {
+    this.icons.logout = matLogout;
   },
 };
 </script>
