@@ -14,15 +14,15 @@ You're gonna need to create environment files with values as shown in `variables
 
 Contact [@MilosPaunovic](https://github.com/MilosPaunovic) if you need any additional help with it.
 
-### Start in DEV mode
+### Start in development mode
 
->  Change ENV to be local
+>  Change ENV to be local, development or production
 
 ```bash
 npm run dev:ENV
 ```
 
-### Build for servers
+### Build code for servers
 
 >  Change ENV to be development or production
 
