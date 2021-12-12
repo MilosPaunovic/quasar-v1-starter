@@ -29,3 +29,7 @@ npm run dev:ENV
 ```bash
 npm run build:ENV
 ```
+
+### Testing
+
+As it might depend on some backend service, no testing scripts will be listed here. If you know what you're doing, you'll know where to find them.
