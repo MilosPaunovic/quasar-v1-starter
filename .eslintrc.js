@@ -5,8 +5,9 @@ module.exports = {
   root: true,
 
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    requireConfigFile: false,
     sourceType: 'module' // Allows for the use of imports
   },
 
@@ -62,6 +63,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'prefer-promise-reject-errors': 'off',
     'func-names': 'off',
+    'vue/multi-word-component-names': 'off',
 
     // Allow console only during development
     "no-console": process.env.DEBUGGING ? "off" : "error",

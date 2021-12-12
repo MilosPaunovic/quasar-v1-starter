@@ -24,7 +24,7 @@
         :loading="isLoading"
         icon="logout"
         flat
-        data-cy="logout_button"
+        data-cy="header__logout_button"
       >
         <q-tooltip>Logout</q-tooltip>
       </Button>

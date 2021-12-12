@@ -12,7 +12,7 @@
       @keypress.enter="login(user)"
       label="Email"
       class="q-pb-lg"
-      data-cy="login_email"
+      data-cy="login__email"
     />
     <Input
       name="password"
@@ -21,14 +21,14 @@
       :type="passwordVisible ? 'text' : 'password'"
       label="Password"
       class="q-pb-lg"
-      data-cy="login_password"
+      data-cy="login__password"
     >
       <template v-slot:append>
         <q-icon
           @click="passwordVisible = !passwordVisible"
           :name="passwordVisible ? 'visibility_off' : 'visibility'"
           class="cursor-pointer"
-          data-cy="password_visibility"
+          data-cy="login__password_visibility"
         />
       </template>
     </Input>
@@ -38,14 +38,14 @@
           <router-link
             :to="{ name: 'Register' }"
             class="col-12 cursor-pointer text-primary"
-            data-cy="register_redirect"
+            data-cy="login__register_redirect"
           >
             <span>Don't have an account?</span>
           </router-link>
           <router-link
             :to="{ name: 'ForgotPassword' }"
             class="col-12 cursor-pointer text-primary"
-            data-cy="forgot_password_redirect"
+            data-cy="login__forgot_password_redirect"
           >
             <span>Forgot password?</span>
           </router-link>
@@ -56,7 +56,7 @@
           @click="login(user)"
           :loading="isLoading"
           label="Log in"
-          data-cy="login_button"
+          data-cy="login__button"
         />
       </div>
     </div>

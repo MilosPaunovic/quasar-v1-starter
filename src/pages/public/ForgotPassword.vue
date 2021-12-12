@@ -12,14 +12,14 @@
       @keypress.enter="forgotPassword(email)"
       label="Email"
       class="q-pb-lg"
-      data-cy="forgot_password_email"
+      data-cy="forgot_password__email"
     />
     <div class="row justify-between">
       <div class="col-6">
         <router-link
           :to="{ name: 'Login' }"
           class="cursor-pointer text-primary"
-          data-cy="login_redirect"
+          data-cy="forgot_password__login_redirect"
         >
           <span>Have credentials?</span>
         </router-link>
@@ -29,7 +29,7 @@
           @click="forgotPassword(email)"
           :loading="isLoading"
           label="Reset"
-          data-cy="forgot_password_button"
+          data-cy="forgot_password__button"
         />
       </div>
     </div>

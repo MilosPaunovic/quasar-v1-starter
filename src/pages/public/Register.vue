@@ -12,7 +12,7 @@
       @keypress.enter="register(user)"
       label="Name"
       class="q-pb-lg"
-      data-cy="register_name"
+      data-cy="register__name"
     />
     <Input
       name="email"
@@ -20,7 +20,7 @@
       @keypress.enter="register(user)"
       label="Email"
       class="q-pb-lg"
-      data-cy="register_email"
+      data-cy="register__email"
     />
     <Input
       name="password"
@@ -29,14 +29,14 @@
       :type="passwordVisible ? 'text' : 'password'"
       label="Password"
       class="q-pb-lg"
-      data-cy="register_password"
+      data-cy="register__password"
     >
       <template v-slot:append>
         <q-icon
           @click="passwordVisible = !passwordVisible"
           :name="passwordVisible ? 'visibility_off' : 'visibility'"
           class="cursor-pointer"
-          data-cy="password_visibility"
+          data-cy="register__password_visibility"
         />
       </template>
     </Input>
@@ -45,7 +45,7 @@
         <router-link
           :to="{ name: 'Login' }"
           class="cursor-pointer text-primary"
-          data-cy="login_redirect"
+          data-cy="register__login_redirect"
         >
           <span>Have credentials?</span>
         </router-link>
@@ -55,7 +55,7 @@
           @click="register(user)"
           :loading="isLoading"
           label="Register"
-          data-cy="register_button"
+          data-cy="register__button"
         />
       </div>
     </div>

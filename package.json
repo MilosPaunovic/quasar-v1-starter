@@ -10,12 +10,23 @@
 
     "lint": "eslint . --ext .js,.vue --fix",
 
+    "test:e2e:local": "cross-env ENVIRONMENT=local ./node_modules/.bin/cypress open",
+    "test:e2e:ci:local": "cross-env ENVIRONMENT=local ./node_modules/.bin/cypress run",
+    "test:e2e:console:local": "cross-env ENVIRONMENT=local start-test dev:local http-get://localhost:7200/ test:e2e:ci:local",
     "dev:local": "cross-env ENVIRONMENT=local quasar dev",
 
-    "prebuild:development": "npm run lint",
+    "test:e2e:development": "cross-env ENVIRONMENT=development ./node_modules/.bin/cypress open",
+    "test:e2e:ci:development": "cross-env ENVIRONMENT=development ./node_modules/.bin/cypress run",
+    "test:e2e:console:development": "cross-env ENVIRONMENT=development start-test dev:development http-get://localhost:7200/ test:e2e:ci:development",
+    "dev:development": "cross-env ENVIRONMENT=development quasar dev",
+    "prebuild:development": "npm run lint && test:e2e:console:development",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
-
-    "prebuild:production": "npm run lint",
+    
+    "test:e2e:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress open",
+    "test:e2e:ci:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress run",
+    "test:e2e:console:production": "cross-env ENVIRONMENT=production start-test dev:production http-get://localhost:7200/ test:e2e:ci:production",
+    "dev:production": "cross-env ENVIRONMENT=production quasar dev",
+    "prebuild:production": "npm run lint && test:e2e:console:production",
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
@@ -29,10 +40,14 @@
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
-    "babel-eslint": "^10.0.1",
+    "@quasar/quasar-app-extension-testing": "^1.0.5",
+    "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
+    "@babel/eslint-parser": "^7.5.4",
     "cross-env": "^7.0.3",
+    "cypress": "^6.9.1",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^8.2.0",
     "eslint-webpack-plugin": "^2.4.0"
