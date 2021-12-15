@@ -6,7 +6,6 @@
 // Configuration for your app
 // https://v1.quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
-/* eslint func-names: 0 */
 /* eslint global-require: 0 */
 const ESLintPlugin = require('eslint-webpack-plugin');
 const parser = require('./variables/parser');
