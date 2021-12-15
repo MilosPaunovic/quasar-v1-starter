@@ -1,7 +1,7 @@
 {
   "name": "starter",
   "version": "0.0.2",
-  "description": "Quasar template for quickly starting Lakeside R&D projects.",
+  "description": "Quasar template for quickly starting projects.",
   "productName": "Starter",
   "author": "Milos Paunovic <paun992@hotmail.com>",
   "private": true,

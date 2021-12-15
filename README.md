@@ -1,6 +1,6 @@
 # Starter
 
-Quasar template for quickly starting Lakeside R&D projects.
+Quasar template for quickly starting projects.
 
 ### Install the dependencies
 

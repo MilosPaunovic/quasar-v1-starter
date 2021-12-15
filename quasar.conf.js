@@ -130,7 +130,7 @@ module.exports = function (/* ctx */) {
       manifest: {
         name: 'Starter',
         short_name: 'Starter',
-        description: 'Quasar template for quickly starting Lakeside R&D projects.',
+        description: 'Quasar template for quickly starting projects.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
