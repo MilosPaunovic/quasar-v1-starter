@@ -39,7 +39,7 @@
     "quasar": "^1.16.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.5.4",
+    "@babel/eslint-parser": "^7.16.5",
     "@quasar/app": "^2.0.0",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
