@@ -35,16 +35,11 @@ const routes = [
       },
     ],
   },
-  // Catch all non-existent pages and redirect them to Error page
+  // Catch all non-existent pages and redirect 'em to Error page
   {
     path: '*',
     component: () => import('layouts/Main'),
-    children: [
-      {
-        path: '',
-        name: 'Error',
-        component: () => import('pages/Error'),
-      }],
+    children: [{ path: '', name: 'Error', component: () => import('pages/Error') }],
   },
 ];
 
