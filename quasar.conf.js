@@ -128,9 +128,9 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'Starter',
-        short_name: 'Starter',
-        description: 'Quasar template for quickly starting projects.',
+        name: 'ExampleName',
+        short_name: 'ExampleName',
+        description: 'ExampleDescription.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
