@@ -35,7 +35,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { matLogout } from '@quasar/extras/material-icons';
-import { version } from '../../../package.json';
+import { version } from 'app/package.json';
 
 export default {
   name: 'DesktopHeader',

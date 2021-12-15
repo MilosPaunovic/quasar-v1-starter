@@ -12,7 +12,7 @@
 export default {
   name: 'Main',
   components: {
-    MainHeader: () => import('../components/navigation/MainHeader'),
+    MainHeader: () => import('components/navigation/MainHeader'),
   },
 };
 </script>

@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/browser';
-import AUTH_API from '../../api/auth';
+import AUTH_API from 'src/api/auth';
 
 export function login({ commit }, credentials) {
   commit('UPDATE_LOADING', true);
