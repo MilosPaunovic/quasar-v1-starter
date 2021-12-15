@@ -4,11 +4,10 @@ ExampleDescription.
 
 ### Generate stuff
 
->  Running this command will load and execute `generator.sh` script, ask you a few questions and do menial jobs for you.
-
 ```bash
 npm run generator
 ```
+>  Running this command will load and execute `generator.sh` script, which will ask a few questions and do menial tasks based on answers; highly recommendeded to run before start of any further development.
 
 ### Install the dependencies
 
