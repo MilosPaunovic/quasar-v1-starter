@@ -1,3 +1,5 @@
+const PRODUCTION = process.env.NODE_ENV === "production";
+
 module.exports = {
   // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
   // This option interrupts the configuration hierarchy at this file
@@ -66,9 +68,9 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
 
     // Allow console only during development
-    "no-console": process.env.DEBUGGING ? "off" : "error",
+    "no-console": PRODUCTION ? "error" : "off",
 
     // Allow debugger only during development
-    'no-debugger': process.env.DEBUGGING ? 'off' : 'error'
+    'no-debugger': PRODUCTION ? "error" : "off",
   }
 };
