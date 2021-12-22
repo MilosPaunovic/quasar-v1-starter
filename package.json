@@ -30,21 +30,21 @@
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
-    "@quasar/extras": "^1.12.2",
     "@sentry/tracing": "^6.16.1",
     "@sentry/vue": "^6.16.1",
     "axios": "^0.24.0",
     "core-js": "^3.20.0",
-    "dotenv": "^10.0.0",
     "quasar": "^1.16.3"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
     "@quasar/app": "^2.0.0",
+    "@quasar/extras": "^1.12.2",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^6.9.1",
+    "dotenv": "^10.0.0",
     "eslint": "^8.5.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-cypress": "^2.11.1",
