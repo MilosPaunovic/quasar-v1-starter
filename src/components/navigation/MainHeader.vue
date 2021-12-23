@@ -11,7 +11,12 @@
       >
         <router-link :to="{ name: 'Home' }">
           <q-avatar square>
-            <img src="~assets/images/logo.png" alt="Logo" />
+            <img
+              src="~assets/images/logo.png"
+              alt="Logo"
+              width="38"
+              height="38"
+            />
           </q-avatar>
         </router-link>
         <q-badge v-if="debbuging" :label="badge" align="top" />
