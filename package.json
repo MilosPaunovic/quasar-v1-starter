@@ -21,7 +21,7 @@
     "dev:development": "cross-env ENVIRONMENT=development quasar dev",
     "prebuild:development": "npm run lint && test:e2e:console:development",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
-    
+
     "test:e2e:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress open",
     "test:e2e:ci:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress run",
     "test:e2e:console:production": "cross-env ENVIRONMENT=production start-test dev:production http-get://localhost:7200/ test:e2e:ci:production",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
-    "@quasar/app": "^2.0.0",
+    "@quasar/app": "^2.2.11",
     "@quasar/extras": "^1.12.2",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
