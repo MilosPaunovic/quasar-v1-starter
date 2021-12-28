@@ -1,6 +1,6 @@
 <template>
-  <q-header bordered class="bg-white">
-    <q-toolbar class="text-dark">
+  <q-header bordered :class="$q.dark.isActive ? 'bg-dark' : 'bg-white'">
+    <q-toolbar :class="$q.dark.isActive ? 'text-dark' : 'text-white'">
       <q-toolbar-title
         shrink
         :class="{
@@ -24,6 +24,7 @@
 
       <q-space />
 
+      <DarkToggle />
       <Button
         @click="logout"
         :loading="isLoading"
@@ -44,6 +45,7 @@ import { version } from 'app/package.json';
 
 export default {
   name: 'DesktopHeader',
+  components: { DarkToggle: () => import('components/navigation/DarkToggle') },
   data: () => ({ icons: { logout: undefined } }),
   computed: {
     ...mapState({ isLoading: (state) => state.auth.isLoading }),
