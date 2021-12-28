@@ -1,7 +1,13 @@
-describe('General', () => {
+describe('Settings', () => {
   beforeEach(() => cy.logout());
 
-  it('Check if there is a color mode toggle in header on home page.', () => { });
+  it('Test -settings- route.', () => {
+    cy.testRoute('settings');
+  });
+
+  it('Check if there is a color mode toggle in header on settings page.', () => { });
+
+  it('Check if there is a color mode toggle on the page itself.', () => { });
 
   it('Check if color mode could be switched to dark and back to light.', () => { });
 
