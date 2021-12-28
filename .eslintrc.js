@@ -1,4 +1,5 @@
-const PRODUCTION = process.env.NODE_ENV === "production";
+const VARIABLES = require('./variables/parser')();
+const PRODUCTION = VARIABLES.ENVIRONMENT === 'production';
 
 module.exports = {
   // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
@@ -68,9 +69,9 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
 
     // Allow console only during development
-    "no-console": PRODUCTION ? "error" : "off",
+    'no-console': PRODUCTION ? 'error' : 'off',
 
     // Allow debugger only during development
-    'no-debugger': PRODUCTION ? "error" : "off",
+    'no-debugger': PRODUCTION ? 'error' : 'off',
   }
 };
