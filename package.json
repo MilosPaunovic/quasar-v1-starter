@@ -19,14 +19,14 @@
     "test:e2e:ci:development": "cross-env ENVIRONMENT=development ./node_modules/.bin/cypress run",
     "test:e2e:console:development": "cross-env ENVIRONMENT=development start-test dev:development http-get://localhost:7200/ test:e2e:ci:development",
     "dev:development": "cross-env ENVIRONMENT=development quasar dev",
-    "prebuild:development": "npm run lint && test:e2e:console:development",
+    "prebuild:development": "cross-env ENVIRONMENT=development npm run lint && npm run test:e2e:console:development",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
 
     "test:e2e:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress open",
     "test:e2e:ci:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress run",
     "test:e2e:console:production": "cross-env ENVIRONMENT=production start-test dev:production http-get://localhost:7200/ test:e2e:ci:production",
     "dev:production": "cross-env ENVIRONMENT=production quasar dev",
-    "prebuild:production": "npm run lint && test:e2e:console:production",
+    "prebuild:production": "cross-env ENVIRONMENT=production npm run lint && npm run test:e2e:console:production",
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
