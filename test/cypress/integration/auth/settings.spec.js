@@ -1,9 +1,7 @@
 describe('Settings', () => {
   beforeEach(() => cy.logout());
 
-  it('Test -settings- route.', () => {
-    cy.testRoute('settings');
-  });
+  it('Test -settings- route.', () => { });
 
   it('Check if there is a color mode toggle in header on settings page.', () => { });
 
