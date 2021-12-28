@@ -24,7 +24,15 @@
 
       <q-space />
 
-      <DarkToggle />
+      <DarkToggle v-if="$route.name !== 'Settings'" />
+      <Button
+        :to="{ name: 'Settings' }"
+        :icon="icons.settings"
+        flat
+        data-cy="header__settings_button"
+      >
+        <q-tooltip>Settings</q-tooltip>
+      </Button>
       <Button
         @click="logout"
         :loading="isLoading"
@@ -40,13 +48,13 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { matLogout } from '@quasar/extras/material-icons';
+import { matSettings, matLogout } from '@quasar/extras/material-icons';
 import { version } from 'app/package.json';
 
 export default {
   name: 'DesktopHeader',
   components: { DarkToggle: () => import('components/navigation/DarkToggle') },
-  data: () => ({ icons: { logout: undefined } }),
+  data: () => ({ icons: { settings: undefined, logout: undefined } }),
   computed: {
     ...mapState({ isLoading: (state) => state.auth.isLoading }),
     debbuging: () => process.env.DEBUGGING,
@@ -56,6 +64,7 @@ export default {
     ...mapActions({ logout: 'auth/logout' }),
   },
   created() {
+    this.icons.settings = matSettings;
     this.icons.logout = matLogout;
   },
 };

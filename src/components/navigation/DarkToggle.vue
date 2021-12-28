@@ -17,6 +17,7 @@ import { matDarkMode, matLightMode } from '@quasar/extras/material-icons';
 
 export default {
   name: 'DarkToggle',
+  props: { showIcons: { type: Boolean, default: true } },
   data: () => ({
     mode: undefined,
     icons: { dark: undefined, light: undefined },
@@ -28,8 +29,7 @@ export default {
     },
   },
   created() {
-    this.icons.dark = matDarkMode;
-    this.icons.light = matLightMode;
+    if (this.showIcons) this.icons = { dark: matDarkMode, light: matLightMode };
     this.mode = MODE_SERVICE.getMode();
   },
 };

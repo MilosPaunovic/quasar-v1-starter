@@ -33,6 +33,11 @@ const routes = [
         name: 'Home',
         component: () => import('pages/Home'),
       },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import('pages/Settings'),
+      },
     ],
   },
   // Catch all non-existent pages and redirect 'em to Error page
