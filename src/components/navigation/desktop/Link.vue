@@ -4,6 +4,7 @@
     :label="link.label"
     flat
     :class="compClasses"
+    class="text-weight-regular"
   />
 </template>
 

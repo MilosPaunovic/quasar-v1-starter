@@ -3,6 +3,8 @@
     v-bind="$attrs"
     clickable
     @click="$emit('click')"
+    exact
+    active-class="text-primary"
     class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-2"
     data-cy="mobile_menu__link"
   >

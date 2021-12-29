@@ -19,7 +19,6 @@
         :to="{ name: link.route }"
         :active="$route.name == link.route"
         :label="link.label"
-        active-class="text-primary"
       />
       <Link label="Logout" @click="logout" />
     </q-list>
