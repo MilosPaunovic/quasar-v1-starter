@@ -1,13 +1,15 @@
-describe('Forgot password', () => {
+describe('AUTH: Forgot password', () => {
   beforeEach(() => {
     cy.logout().visit('/forgot-password');
+
+    cy.intercept('POST', 'forgot-password').as('forgotPassword');
 
     cy.fixture(`${Cypress.env('ENVIRONMENT')}/auth`).then((auth) => {
       this.auth = auth;
     });
   });
 
-  it('Test -forgot-password- route.', () => {
+  it('Test route.', () => {
     cy.testRoute('forgot-password');
   });
 

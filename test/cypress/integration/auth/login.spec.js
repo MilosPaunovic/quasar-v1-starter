@@ -1,4 +1,4 @@
-describe('Login', () => {
+describe('AUTH: Login', () => {
   beforeEach(() => {
     cy.logout();
 
@@ -9,7 +9,7 @@ describe('Login', () => {
     });
   });
 
-  it('Test -login- route.', () => {
+  it('Test route.', () => {
     cy.testRoute('login');
   });
 

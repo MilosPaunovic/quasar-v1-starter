@@ -1,4 +1,4 @@
-describe('Register', () => {
+describe('AUTH: Register', () => {
   beforeEach(() => {
     cy.logout().visit('/register');
 
@@ -9,7 +9,7 @@ describe('Register', () => {
     });
   });
 
-  it('Test -register- route.', () => {
+  it('Test register route.', () => {
     cy.testRoute('register');
   });
 
