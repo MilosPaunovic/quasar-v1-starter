@@ -14,7 +14,7 @@
         "
       >
         <q-item-section side>
-          <DarkToggle :show-icons="false" />
+          <ModeToggle :show-icons="false" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Dark theme</q-item-label>
@@ -30,6 +30,6 @@
 <script>
 export default {
   name: 'Settings',
-  components: { DarkToggle: () => import('components/navigation/DarkToggle') },
+  components: { ModeToggle: () => import('components/shared/ModeToggle') },
 };
 </script>

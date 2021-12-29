@@ -6,8 +6,9 @@
     true-value="dark"
     :unchecked-icon="icons.light"
     false-value="light"
-    :color="$q.dark.isActive ? 'primary' : 'dark'"
+    :color="modeClasses({ colors: ['primary', 'dark'] })"
     keep-color
+    data-cy="dark_toggle__toggle"
   />
 </template>
 
@@ -16,7 +17,7 @@ import { MODE_SERVICE } from 'src/services/mode';
 import { matDarkMode, matLightMode } from '@quasar/extras/material-icons';
 
 export default {
-  name: 'DarkToggle',
+  name: 'ModeToggle',
   props: { showIcons: { type: Boolean, default: true } },
   data: () => ({
     mode: undefined,

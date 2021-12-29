@@ -1,6 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <MainHeader />
+    <DesktopNavigation />
+    <MobileNavigation />
 
     <q-page-container>
       <router-view />
@@ -12,7 +13,8 @@
 export default {
   name: 'Main',
   components: {
-    MainHeader: () => import('components/navigation/MainHeader'),
+    DesktopNavigation: () => import('components/navigation/desktop/Header'),
+    MobileNavigation: () => import('components/navigation/mobile/Menu'),
   },
 };
 </script>
