@@ -9,26 +9,35 @@
     <Input
       name="name"
       v-model="user.name"
-      @keypress.enter="register(user)"
+      @keypress.enter="submit"
       label="Name"
-      class="q-pb-lg"
+      :rules="[(val) => validations.required(val, 'Name')]"
+      class="q-pt-md"
       data-cy="register__name"
     />
     <Input
       name="email"
       v-model="user.email"
-      @keypress.enter="register(user)"
+      @keypress.enter="submit"
       label="Email"
-      class="q-pb-lg"
+      :rules="[
+        (val) => validations.required(val, 'Email'),
+        (val) => validations.email(val),
+      ]"
+      class="q-pt-md"
       data-cy="register__email"
     />
     <Input
       name="password"
       v-model="user.password"
-      @keypress.enter="register(user)"
+      @keypress.enter="submit"
       :type="passwordVisible ? 'text' : 'password'"
       label="Password"
-      class="q-pb-lg"
+      :rules="[
+        (val) => validations.required(val, 'Password'),
+        (val) => validations.password(val),
+      ]"
+      class="q-pt-md"
       data-cy="register__password"
     >
       <template v-slot:append>
@@ -40,7 +49,7 @@
         />
       </template>
     </Input>
-    <div class="row justify-between">
+    <div class="q-pt-lg row justify-between">
       <div class="col-6">
         <router-link
           :to="{ name: 'Login' }"
@@ -52,7 +61,7 @@
       </div>
       <div class="col-6 text-right">
         <Button
-          @click="register(user)"
+          @click="submit"
           :loading="isLoading"
           label="Register"
           data-cy="register__button"
@@ -65,6 +74,11 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { matVisibility, matVisibilityOff } from '@quasar/extras/material-icons';
+import {
+  validateRequired,
+  validateEmail,
+  validatePassword,
+} from 'src/services/utils';
 
 export default {
   name: 'Register',
@@ -75,9 +89,21 @@ export default {
   }),
   computed: {
     ...mapState({ isLoading: (state) => state.auth.isLoading }),
+    validations() {
+      return {
+        required: validateRequired,
+        email: validateEmail,
+        password: validatePassword,
+      };
+    },
   },
   methods: {
     ...mapActions({ register: 'auth/register' }),
+    submit() {
+      this.$refs.register.validate().then((success) => {
+        if (success) this.register(this.user);
+      });
+    },
   },
   created() {
     this.icons.visibility = matVisibility;

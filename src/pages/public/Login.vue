@@ -9,18 +9,23 @@
     <Input
       name="email"
       v-model="user.email"
-      @keypress.enter="login(user)"
+      @keypress.enter="submit"
       label="Email"
-      class="q-pb-lg"
+      :rules="[
+        (val) => validations.required(val, 'Email'),
+        (val) => validations.email(val),
+      ]"
+      class="q-pt-md"
       data-cy="login__email"
     />
     <Input
       name="password"
       v-model="user.password"
-      @keypress.enter="login(user)"
+      @keypress.enter="submit"
       :type="passwordVisible ? 'text' : 'password'"
       label="Password"
-      class="q-pb-lg"
+      :rules="[(val) => validations.required(val, 'Password')]"
+      class="q-pt-md"
       data-cy="login__password"
     >
       <template v-slot:append>
@@ -32,7 +37,7 @@
         />
       </template>
     </Input>
-    <div class="row justify-between">
+    <div class="q-pt-lg row justify-between">
       <div class="col-6">
         <div class="row">
           <router-link
@@ -53,7 +58,7 @@
       </div>
       <div class="col-6 text-right">
         <Button
-          @click="login(user)"
+          @click="submit"
           :loading="isLoading"
           label="Log in"
           data-cy="login__button"
@@ -66,6 +71,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { matVisibility, matVisibilityOff } from '@quasar/extras/material-icons';
+import { validateRequired, validateEmail } from 'src/services/utils';
 
 export default {
   name: 'Login',
@@ -76,9 +82,20 @@ export default {
   }),
   computed: {
     ...mapState({ isLoading: (state) => state.auth.isLoading }),
+    validations() {
+      return {
+        required: validateRequired,
+        email: validateEmail,
+      };
+    },
   },
   methods: {
     ...mapActions({ login: 'auth/login' }),
+    submit() {
+      this.$refs.login.validate().then((success) => {
+        if (success) this.login(this.user);
+      });
+    },
   },
   created() {
     this.icons.visibility = matVisibility;

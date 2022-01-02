@@ -7,7 +7,7 @@ export default {
     lazyRules: { type: Boolean, default: true },
     color: { type: String, default: 'primary' },
     outlined: { type: Boolean, default: true },
-    hideBottomSpace: { type: Boolean, default: true },
+    noErrorIcon: { type: Boolean, default: true },
   },
 };
 </script>
