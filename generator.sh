@@ -44,3 +44,13 @@ sed -i '' -e '/ENVIRONMENT/ s/$/ production/' .env.production
 
 # Reporting successful creation of environment files
 printf "• ${green}Environment files successfully created${regular} \n"
+
+# Asking if user wishes to disable Dependabot version updates
+read -p "Do you wish to disable Dependabot version updates? [y/n]: " dependabot
+dependabot=${dependabot:-n}
+
+if [ $dependabot = "y" ] || [ $dependabot = "Y" ]; then
+    rm -rf .github
+    # Reporting successful disabling of Dependabot version updates
+    printf "• ${green}Dependabot version updates successfully disabled${regular} \n"
+fi
