@@ -34,10 +34,10 @@
     "@sentry/vue": "^6.17.2",
     "axios": "^0.25.0",
     "core-js": "^3.20.3",
-    "quasar": "^1.17.8"
+    "quasar": "^1.18.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "^7.17.0",
     "@quasar/app": "^2.2.11",
     "@quasar/extras": "^1.12.4",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
