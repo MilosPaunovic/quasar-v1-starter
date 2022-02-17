@@ -41,7 +41,7 @@
     "@quasar/app": "^2.2.11",
     "@quasar/extras": "^1.12.5",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
-    "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
+    "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.2",
     "cross-env": "^7.0.3",
     "cypress": "^6.9.1",
     "dotenv": "^16.0.0",
