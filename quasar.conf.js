@@ -77,7 +77,9 @@ module.exports = function (/* ctx */) {
     devServer: {
       https: false,
       port: 7200,
-      open: true, // opens browser window automatically
+      open: true,
+      // https://v1.quasar.dev/quasar-cli/quasar-conf-js#docker-and-wsl-issues-with-hrm
+      watchOptions: { poll: 1000 },
     },
 
     // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
