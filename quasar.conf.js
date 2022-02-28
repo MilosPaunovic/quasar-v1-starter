@@ -9,11 +9,15 @@
 /* eslint global-require: 0 */
 const ESLintPlugin = require('eslint-webpack-plugin');
 const parser = require('./variables/parser');
+const { version } = require('./package.json');
 
 module.exports = function (/* ctx */) {
   return {
     // https://v1.quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
+
+    // https://v1.quasar.dev/quasar-cli/quasar-conf-js#property-htmlvariables
+    htmlVariables: { version },
 
     // https://v1.quasar.dev/quasar-cli/prefetch-feature
     // preFetch: true,
