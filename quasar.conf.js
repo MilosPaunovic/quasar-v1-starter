@@ -7,8 +7,8 @@
 // https://v1.quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 /* eslint global-require: 0 */
-const ESLintPlugin = require('eslint-webpack-plugin');
-const parser = require('./variables/parser');
+const ESLINT_PLUGIN = require('eslint-webpack-plugin');
+const PARSER = require('./variables/parser')();
 const { version } = require('./package.json');
 
 module.exports = function (/* ctx */) {
@@ -39,22 +39,13 @@ module.exports = function (/* ctx */) {
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
-    extras: [
-      // 'material-icons',
-      // 'ionicons-v4',
-      // 'mdi-v5',
-      // 'fontawesome-v5',
-      // 'eva-icons',
-      // 'themify',
-      // 'line-awesome',
-      // 'roboto-font'
-    ],
+    extras: [],
 
     // Full list of options: https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       modern: true,
       uglifyOptions: { compress: { drop_console: !process.env.DEBUGGING } },
-      env: parser(),
+      env: PARSER,
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
@@ -68,7 +59,7 @@ module.exports = function (/* ctx */) {
       // preloadChunks: true,
       // showProgress: false,
       // gzip: true,
-      // analyze: true,
+      analyze: PARSER.ENVIRONMENT !== 'production',
 
       // Options below are automatically set depending on the env, set them if you want to override
       // extractCSS: false,
@@ -77,7 +68,7 @@ module.exports = function (/* ctx */) {
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpack(chain) {
         chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }]);
+          .use(ESLINT_PLUGIN, [{ extensions: ['js', 'vue'] }]);
         chain.output.chunkFilename('js/[id].[chunkhash:20].js');
       },
     },
