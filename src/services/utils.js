@@ -21,6 +21,7 @@ const validateEmail = (email) => {
  * @param  {String} value Inputed value
  * @returns {Boolean | String } Returns Boolean value if true or Error string if false
  */
-const validatePassword = (value, minimum = 6) => value.length >= minimum || `Password must containt at least ${minimum} characters`;
+const validatePassword = (value, minimum = 6) => value.length >= minimum
+  || `Password must containt at least ${minimum} characters`;
 
 export { validateRequired, validateEmail, validatePassword };
