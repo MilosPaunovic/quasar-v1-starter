@@ -8,21 +8,17 @@
   "scripts": {
     "prepare:all": "npm i @quasar/cli && npm i --legacy-peer-deps && node generator.js",
     "postprepare:all": "npm uninstall chalk inquirer replace-in-file",
-
     "lint": "eslint . --ext .js,.vue --fix",
-
     "test:e2e:local": "cross-env ENVIRONMENT=local ./node_modules/.bin/cypress open",
     "test:e2e:ci:local": "cross-env ENVIRONMENT=local ./node_modules/.bin/cypress run",
     "test:e2e:console:local": "cross-env ENVIRONMENT=local start-test dev:local http-get://localhost:7200/ test:e2e:ci:local",
     "dev:local": "cross-env ENVIRONMENT=local quasar dev",
-
     "test:e2e:development": "cross-env ENVIRONMENT=development ./node_modules/.bin/cypress open",
     "test:e2e:ci:development": "cross-env ENVIRONMENT=development ./node_modules/.bin/cypress run",
     "test:e2e:console:development": "cross-env ENVIRONMENT=development start-test dev:development http-get://localhost:7200/ test:e2e:ci:development",
     "dev:development": "cross-env ENVIRONMENT=development quasar dev",
     "prebuild:development": "cross-env ENVIRONMENT=development npm run lint && npm run test:e2e:console:development",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
-    
     "test:e2e:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress open",
     "test:e2e:ci:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress run",
     "test:e2e:console:production": "cross-env ENVIRONMENT=production start-test dev:production http-get://localhost:7200/ test:e2e:ci:production",
