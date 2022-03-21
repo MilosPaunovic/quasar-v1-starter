@@ -34,47 +34,38 @@ const questions = [
   },
 ];
 
-inquirer.prompt(questions).then((answers) => {
-  replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue'], from: /ExampleName/g, to: answers.name })
-    .catch((error) => logger(`Project name caused an error: ${error}`, 'red'));
+inquirer.prompt(questions)
+  .then(async (answers) => {
+    await replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue'], from: /ExampleName/g, to: answers.name })
+      .catch((error) => logger(`Project name caused an error: ${error}`, 'red'));
 
-  replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: /ExampleDescription/g, to: answers.description })
-    .catch((error) => logger(`Setting description caused an error: ${error}`, 'red'));
+    await replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: /ExampleDescription/g, to: answers.description })
+      .catch((error) => logger(`Setting description caused an error: ${error}`, 'red'));
 
-  if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {
-    replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
-      .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
-  }
+    if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {
+      await replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
+        .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
+    }
 
-  const base = './variables/.env.';
+    if (answers.dependabot === 'yes') {
+      fs.rmSync('.github', { recursive: true, force: true });
+    }
 
-  fs.copyFile(`${base}example`, `${base}local`, (error) => {
-    if (error) logger(`Setting local environment file caused an error: ${error}`, 'red');
-    replace({ files: [`${base}local`], from: 'ENVIRONMENT =', to: 'ENVIRONMENT = local' })
-      .catch(() => logger('Replacing value of local environment variable caused an error', 'red'));
-  });
-
-  fs.copyFile(`${base}example`, `${base}development`, (error) => {
-    if (error) logger(`Setting development environment file caused an error: ${error}`, 'red');
-    replace({ files: [`${base}development`], from: 'ENVIRONMENT =', to: 'ENVIRONMENT = development' })
-      .catch(() => logger('Replacing value of local development variable caused an error', 'red'));
-  });
-
-  fs.copyFile(`${base}example`, `${base}production`, (error) => {
-    if (error) logger(`Setting production environment file caused an error: ${error}`, 'red');
-    replace({ files: [`${base}production`], from: 'ENVIRONMENT =', to: 'ENVIRONMENT = production' })
-      .catch(() => logger('Replacing value of local production variable caused an error', 'red'));
-  });
-
-  if (answers.dependabot === 'yes') {
-    fs.rmSync('.github', { recursive: true, force: true });
-  }
-
-  logger('\n\nCongrats! Now you can start developing your awesome application!\n\n');
-})
+    logger('\n\nCongrats! Now you can start developing your awesome application!\n\n');
+  })
   .catch((error) => {
     if (error.isTtyError) logger('Prompt couldn\'t be rendered in the current environment.', 'red');
     else logger(`An error occurred: ${error}`, 'red');
   });
+
+const base = './variables/.env.';
+const generateFiles = (env) => {
+  fs.copyFile(`${base}example`, `${base}${env}`, (error) => {
+    if (error) logger(`Setting ${env} environment file caused an error: ${error}`, 'red');
+    replace({ files: [`${base}${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
+      .catch(() => logger(`Replacing value of ${env} environment variable caused an error`, 'red'));
+  });
+};
+['local', 'development', 'production'].forEach(generateFiles);
 
 fs.rmSync('generator.js', { recursive: true, force: true });
