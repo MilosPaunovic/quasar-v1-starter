@@ -6,7 +6,8 @@
   "author": "Milos Paunovic <paun992@hotmail.com>",
   "private": true,
   "scripts": {
-    "generator": "sh generator.sh",
+    "prepare:all": "npm i @quasar/cli && npm i --legacy-peer-deps && node generator.js",
+    "postprepare:all": "npm uninstall chalk inquirer replace-in-file",
 
     "lint": "eslint . --ext .js,.vue --fix",
 
@@ -21,7 +22,7 @@
     "dev:development": "cross-env ENVIRONMENT=development quasar dev",
     "prebuild:development": "cross-env ENVIRONMENT=development npm run lint && npm run test:e2e:console:development",
     "build:development": "cross-env ENVIRONMENT=development quasar build --debug",
-
+    
     "test:e2e:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress open",
     "test:e2e:ci:production": "cross-env ENVIRONMENT=production ./node_modules/.bin/cypress run",
     "test:e2e:console:production": "cross-env ENVIRONMENT=production start-test dev:production http-get://localhost:7200/ test:e2e:ci:production",
@@ -42,6 +43,7 @@
     "@quasar/extras": "^1.12.5",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.2",
+    "chalk": "^4.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^6.9.1",
     "dotenv": "^16.0.0",
@@ -50,7 +52,9 @@
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.5.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "inquirer": "^7.3.3",
+    "replace-in-file": "^6.3.2"
   },
   "browserslist": [
     "last 10 Chrome versions",
