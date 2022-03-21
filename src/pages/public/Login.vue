@@ -1,13 +1,8 @@
 <template>
-  <q-form
-    ref="login"
-    autocorrect="off"
-    autocapitalize="off"
-    autocomplete="off"
-    spellcheck="false"
-  >
+  <q-form ref="login" autocorrect="off" autocapitalize="off" spellcheck="false">
     <Input
       name="email"
+      autocomplete="email"
       v-model="user.email"
       @keypress.enter="submit"
       label="Email"
@@ -20,6 +15,7 @@
     />
     <Input
       name="password"
+      autocomplete="password"
       v-model="user.password"
       @keypress.enter="submit"
       :type="passwordVisible ? 'text' : 'password'"

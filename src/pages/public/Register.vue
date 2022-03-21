@@ -3,11 +3,11 @@
     ref="register"
     autocorrect="off"
     autocapitalize="off"
-    autocomplete="off"
     spellcheck="false"
   >
     <Input
       name="name"
+      autocomplete="name"
       v-model="user.name"
       @keypress.enter="submit"
       label="Name"
@@ -17,6 +17,7 @@
     />
     <Input
       name="email"
+      autocomplete="email"
       v-model="user.email"
       @keypress.enter="submit"
       label="Email"
@@ -29,6 +30,7 @@
     />
     <Input
       name="password"
+      autocomplete="password"
       v-model="user.password"
       @keypress.enter="submit"
       :type="passwordVisible ? 'text' : 'password'"

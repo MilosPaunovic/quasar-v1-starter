@@ -3,11 +3,11 @@
     ref="forgotPassword"
     autocorrect="off"
     autocapitalize="off"
-    autocomplete="off"
     spellcheck="false"
   >
     <Input
       name="email"
+      autocomplete="email"
       v-model="email"
       @keypress.enter="submit"
       label="Email"
