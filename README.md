@@ -5,15 +5,9 @@ ExampleDescription.
 ### Generate stuff
 
 ```bash
-npm run generator
+npm run prepare:all
 ```
->  Running this command will load and execute `generator.sh` script, which will ask a few questions and do menial tasks based on answers; highly recommendeded to run before start of any further development.
-
-### Install the dependencies
-
-```bash
-npm i @quasar/cli && npm i --legacy-peer-deps
-```
+>  Running this command will load and execute `generator.js` script, which will ask a few questions and do menial tasks based on answers; highly recommendeded to run before start of any further development.
 
 ### Start in development mode
 
