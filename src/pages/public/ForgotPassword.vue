@@ -31,6 +31,7 @@
       </div>
       <div class="col-6 text-right">
         <Button
+          aria-label="Reset password"
           @click="submit"
           :loading="isLoading"
           label="Reset"

@@ -6,6 +6,7 @@
     class="mobile-menu"
   >
     <Button
+      aria-label="Close mobile menu"
       @click="updateMobileMenu(false)"
       :icon="icons.close"
       flat

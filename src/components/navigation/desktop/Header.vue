@@ -3,6 +3,7 @@
     <q-toolbar>
       <Button
         v-if="$q.screen.lt.md"
+        :aria-label="`${isMobileMenuShown ? 'Close' : 'Open'} mobile menu`"
         @click="updateMobileMenu(true)"
         :icon="icons.menu"
         :color="modeClasses()"
@@ -41,6 +42,7 @@
 
         <ModeToggle v-if="$route.name !== 'Settings'" />
         <Button
+          aria-label="Settings link"
           :to="{ name: 'Settings' }"
           :icon="icons.settings"
           flat
@@ -50,6 +52,7 @@
           <q-tooltip>Settings</q-tooltip>
         </Button>
         <Button
+          aria-label="Logout"
           @click="logout"
           :loading="isLoading"
           :icon="icons.logout"
@@ -80,6 +83,7 @@ export default {
   }),
   computed: {
     ...mapState({
+      isMobileMenuShown: (state) => state.global.isMobileMenuShown,
       isLoading: (state) => state.auth.isLoading,
       links: (state) => state.global.links,
     }),

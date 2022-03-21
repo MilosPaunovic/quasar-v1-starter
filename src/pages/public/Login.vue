@@ -54,6 +54,7 @@
       </div>
       <div class="col-6 text-right">
         <Button
+          aria-label="Login"
           @click="submit"
           :loading="isLoading"
           label="Log in"

@@ -63,6 +63,7 @@
       </div>
       <div class="col-6 text-right">
         <Button
+          aria-label="Register"
           @click="submit"
           :loading="isLoading"
           label="Register"
