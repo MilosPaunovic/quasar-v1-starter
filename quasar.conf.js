@@ -47,6 +47,7 @@ module.exports = function (/* ctx */) {
       uglifyOptions: { compress: { drop_console: !process.env.DEBUGGING } },
       env: PARSER,
       vueRouterMode: 'history', // available values: 'hash', 'history'
+      devtool: 'source-map',
 
       // transpile: false,
 
