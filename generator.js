@@ -45,6 +45,8 @@ inquirer.prompt(questions)
     if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {
       await replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
         .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
+    } else {
+      logger(`Inputted version number does not comply with semantic versioning scheme; used default ${version}`, 'yellow');
     }
 
     if (answers.dependabot === 'yes') {
