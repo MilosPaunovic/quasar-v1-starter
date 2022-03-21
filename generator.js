@@ -35,10 +35,10 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue'], from: 'ExampleName', to: answers.name })
+  replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue'], from: /ExampleName/g, to: answers.name })
     .catch((error) => logger(`Project name caused an error: ${error}`, 'red'));
 
-  replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: 'ExampleDescription', to: answers.description })
+  replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: /ExampleDescription/g, to: answers.description })
     .catch((error) => logger(`Setting description caused an error: ${error}`, 'red'));
 
   if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {
