@@ -38,16 +38,11 @@ inquirer.prompt(questions).then((answers) => {
   replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue'], from: 'ExampleName', to: answers.name })
     .catch((error) => logger(`Project name caused an error: ${error}`, 'red'));
 
-  replace({ files: ['./package.json', './quasar.conf.js', './package-lock.json'], from: 'starter', to: answers.name.toLowerCase() })
-    .catch((error) => logger(`Setting project name caused an error: ${error}`, 'red'));
-
   replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: 'ExampleDescription', to: answers.description })
     .catch((error) => logger(`Setting description caused an error: ${error}`, 'red'));
 
   replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
     .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
-
-  logger('Project name, description and version were set successfully');
 
   const base = './variables/.env.';
 
@@ -69,13 +64,11 @@ inquirer.prompt(questions).then((answers) => {
       .catch(() => logger('Replacing value of local production variable caused an error', 'red'));
   });
 
-  logger('Evironment files  were created successfully');
-
   if (answers.dependabot === 'yes') {
     fs.rmSync('.github', { recursive: true, force: true });
   }
 
-  logger('Congrats! Now you can start developing your awesome application!');
+  logger('\n\nCongrats! Now you can start developing your awesome application!\n\n');
 })
   .catch((error) => {
     if (error.isTtyError) logger('Prompt couldn\'t be rendered in the current environment.', 'red');
