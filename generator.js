@@ -19,7 +19,7 @@ const questions = [
     default: 'Quasar template for quickly starting projects',
   },
   {
-    type: 'number',
+    type: 'input',
     name: 'version',
     message: 'Starting this project at version...?',
     default: `${version}`,
@@ -41,8 +41,10 @@ inquirer.prompt(questions).then((answers) => {
   replace({ files: ['./package.json', './quasar.conf.js', './README.md'], from: 'ExampleDescription', to: answers.description })
     .catch((error) => logger(`Setting description caused an error: ${error}`, 'red'));
 
-  replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
-    .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
+  if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {
+    replace({ files: ['./package.json', './package-lock.json'], from: `${version}`, to: answers.version })
+      .catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
+  }
 
   const base = './variables/.env.';
 
