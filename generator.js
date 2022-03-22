@@ -5,6 +5,17 @@ const fs = require('fs');
 const { version } = require('./package.json');
 
 const logger = (text, color = 'green') => console.log(chalk[color](text));
+
+const base = './variables/.env.';
+const generateFiles = (env) => {
+  fs.copyFile(`${base}example`, `${base}${env}`, (error) => {
+    if (error) logger(`Setting ${env} environment file caused an error: ${error}`, 'red');
+    replace({ files: [`${base}${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
+      .catch(() => logger(`Replacing value of ${env} environment variable caused an error`, 'red'));
+  });
+};
+['local', 'development', 'production'].forEach(generateFiles);
+
 const questions = [
   {
     type: 'input',
@@ -59,15 +70,5 @@ inquirer.prompt(questions)
     if (error.isTtyError) logger('Prompt couldn\'t be rendered in the current environment.', 'red');
     else logger(`An error occurred: ${error}`, 'red');
   });
-
-const base = './variables/.env.';
-const generateFiles = (env) => {
-  fs.copyFile(`${base}example`, `${base}${env}`, (error) => {
-    if (error) logger(`Setting ${env} environment file caused an error: ${error}`, 'red');
-    replace({ files: [`${base}${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
-      .catch(() => logger(`Replacing value of ${env} environment variable caused an error`, 'red'));
-  });
-};
-['local', 'development', 'production'].forEach(generateFiles);
 
 fs.rmSync('generator.js', { recursive: true, force: true });
