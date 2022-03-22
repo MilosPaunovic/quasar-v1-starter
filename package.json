@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-webpack-plugin": "^2.4.0",
-    "inquirer": "^7.3.3",
+    "inquirer": "^8.2.1",
     "replace-in-file": "^6.3.2"
   },
   "browserslist": [
