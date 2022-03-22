@@ -1,10 +1,17 @@
 {
   "name": "starter",
-  "version": "0.0.8",
-  "description": "ExampleDescription.",
   "productName": "ExampleName",
-  "author": "Milos Paunovic <paun992@hotmail.com>",
-  "private": true,
+  "description": "ExampleDescription.",
+  "version": "0.0.8",
+  "homepage": "https://github.com/MilosPaunovic/quasar-v1-starter#readme",
+  "bugs": {
+    "url": "https://github.com/MilosPaunovic/quasar-v1-starter/issuess"
+  },
+  "author": {
+    "name": "Milos Paunovic",
+    "email": "paun992@hotmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "prepare:all": "npm i @quasar/cli && npm i --legacy-peer-deps && node generator.js",
     "postprepare:all": "npm uninstall chalk inquirer replace-in-file",
