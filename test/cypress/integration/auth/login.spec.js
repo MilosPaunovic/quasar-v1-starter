@@ -1,5 +1,5 @@
 describe('AUTH: Login', () => {
-  beforeEach(() => {
+  beforeEach(function () {
     cy.logout();
 
     cy.intercept('POST', 'login').as('login');

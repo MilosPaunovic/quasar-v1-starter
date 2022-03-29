@@ -1,5 +1,5 @@
 describe('AUTH: Register', () => {
-  beforeEach(() => {
+  beforeEach(function () {
     cy.logout().visit('/register');
 
     cy.intercept('POST', 'register').as('register');

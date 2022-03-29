@@ -1,5 +1,5 @@
 describe('AUTH: Forgot password', () => {
-  beforeEach(() => {
+  beforeEach(function () {
     cy.logout().visit('/forgot-password');
 
     cy.intercept('POST', 'forgot-password').as('forgotPassword');
