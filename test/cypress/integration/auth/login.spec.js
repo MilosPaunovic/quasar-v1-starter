@@ -36,12 +36,12 @@ describe('AUTH: Login', () => {
   it('Check if password visibility can be changed.', () => { });
 
   it('Check is there a working link to registration page.', () => {
-    cy.dataCy('login__register_redirect').click()
+    cy.dataCy('login-register-link').click()
       .location('pathname').should('eq', '/register');
   });
 
   it('Check is there a working link to forgot password page.', () => {
-    cy.dataCy('login__forgot_password_redirect').click()
+    cy.dataCy('login-forgot-password-link').click()
       .location('pathname').should('eq', '/forgot-password');
   });
 });

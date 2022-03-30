@@ -8,7 +8,7 @@
         :icon="icons.menu"
         :color="modeClasses()"
         flat
-        data-cy="header__mobile_menu_button"
+        data-cy="header-mobile-menu-open-button"
       />
       <q-toolbar-title
         shrink
@@ -47,7 +47,7 @@
           :icon="icons.settings"
           flat
           :color="this.$route.name === 'Settings' ? 'primary' : modeClasses()"
-          data-cy="header__settings_button"
+          data-cy="header-settings-link"
         >
           <q-tooltip>Settings</q-tooltip>
         </Button>
@@ -58,7 +58,7 @@
           :icon="icons.logout"
           flat
           :color="modeClasses()"
-          data-cy="header__logout_button"
+          data-cy="header-logout-button"
         >
           <q-tooltip>Logout</q-tooltip>
         </Button>

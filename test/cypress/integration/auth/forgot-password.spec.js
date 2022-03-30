@@ -20,7 +20,7 @@ describe('AUTH: Forgot password', () => {
   it('Reset password attempt with email of existing user.', () => { });
 
   it('Check is there a working link to login page.', () => {
-    cy.dataCy('forgot_password__login_redirect').click()
+    cy.dataCy('forgot-password-login-link').click()
       .location('pathname').should('eq', '/login');
   });
 });

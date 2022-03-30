@@ -34,7 +34,7 @@ describe('AUTH: Register', () => {
   it('Check if password visibility can be changed.', () => { });
 
   it('Check is there a working link to login page.', () => {
-    cy.dataCy('register__login_redirect').click()
+    cy.dataCy('register-login-link').click()
       .location('pathname').should('eq', '/login');
   });
 });

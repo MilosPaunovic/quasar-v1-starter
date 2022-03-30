@@ -17,14 +17,14 @@
         (val) => validations.email(val),
       ]"
       class="q-pt-md"
-      data-cy="forgot_password__email"
+      data-cy="forgot-password-email-input"
     />
     <div class="q-pt-lg row justify-between">
       <div class="col-6">
         <router-link
           :to="{ name: 'Login' }"
           class="cursor-pointer text-primary"
-          data-cy="forgot_password__login_redirect"
+          data-cy="forgot-password-login-link"
         >
           <span>Have credentials?</span>
         </router-link>
@@ -35,7 +35,7 @@
           @click="submit"
           :loading="isLoading"
           label="Reset"
-          data-cy="forgot_password__button"
+          data-cy="forgot-password-submit-button"
         />
       </div>
     </div>
