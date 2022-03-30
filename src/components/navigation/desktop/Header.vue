@@ -3,7 +3,7 @@
     <q-toolbar>
       <Button
         v-if="$q.screen.lt.md"
-        :aria-label="`${isMobileMenuShown ? 'Close' : 'Open'} mobile menu`"
+        aria-label="Open mobile menu"
         @click="updateMobileMenu(true)"
         :icon="icons.menu"
         :color="modeClasses()"
@@ -83,7 +83,6 @@ export default {
   }),
   computed: {
     ...mapState({
-      isMobileMenuShown: (state) => state.global.isMobileMenuShown,
       isLoading: (state) => state.auth.isLoading,
       links: (state) => state.global.links,
     }),
