@@ -1,7 +1,6 @@
 describe('GENREAL: Global', () => {
   Cypress.env('RESOLUTIONS').forEach((resolution) => {
-    const { name, orientation } = resolution;
-    context(`Testing on ${name} screen in ${orientation} mode`, () => {
+    context(resolution.message, () => {
       before(() => cy.viewport(resolution.width, resolution.height));
       beforeEach(() => cy.logout());
 
