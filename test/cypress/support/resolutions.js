@@ -22,7 +22,7 @@ module.exports = [
   {
     width: 1180,
     height: 820,
-    type: 'tablet',
+    type: 'desktop',
     message: label('iPad', 'landscape'),
   },
   {
