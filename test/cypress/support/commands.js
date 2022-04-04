@@ -26,12 +26,8 @@
 
 Cypress.Commands.add(
   'dataCy',
-  {
-    prevSubject: 'optional',
-  },
-  (subject, value) => cy.get(`[data-cy=${value}]`, {
-    withinSubject: subject,
-  }),
+  { prevSubject: 'optional' },
+  (subject, value) => cy.get(`[data-cy=${value}]`, { withinSubject: subject }),
 );
 
 Cypress.Commands.add('testRoute', (route) => {
@@ -89,6 +85,18 @@ Cypress.Commands.add('forgotPassword', (email) => {
   else cy.dataCy('forgot-password-email-input').clear();
 
   if (email) cy.dataCy('forgot-password-submit-button').click();
+});
+
+const USER_KEY = 'user';
+Cypress.Commands.add('bypassLogin', (route = 'home') => {
+  cy.fixture(`${Cypress.env('ENVIRONMENT')}/auth`).then((auth) => {
+    localStorage.setItem(USER_KEY, JSON.stringify({
+      email: auth.user.email,
+      password: auth.user.password,
+    }));
+
+    cy.visit(`/${route}`);
+  });
 });
 
 Cypress.Commands.add('logout', () => {
