@@ -1,46 +1,33 @@
-const label = (name, orientation) => `Testing on ${name} screen in ${orientation} mode`;
+const screen = (width, height, type = 'desktop') => ({ width, height, type });
+const label = (name, orientation) => ({ message: `Testing on ${name} screen in ${orientation} mode` });
 
 module.exports = [
   {
-    width: 1920,
-    height: 1080,
-    type: 'desktop',
-    message: label('Full High Definition', 'landscape'),
+    ...screen(1920, 1080),
+    ...label('Full High Definition', 'landscape'),
   },
   {
-    width: 1280,
-    height: 720,
-    type: 'desktop',
-    message: label('High Definition', 'landscape'),
+    ...screen(1280, 720),
+    ...label('High Definition', 'landscape'),
   },
   {
-    width: 2560,
-    height: 1600,
-    type: 'desktop',
-    message: label('MacBook', 'landscape'),
+    ...screen(2560, 1600),
+    ...label('MacBook', 'landscape'),
   },
   {
-    width: 1180,
-    height: 820,
-    type: 'desktop',
-    message: label('iPad', 'landscape'),
+    ...screen(1180, 820),
+    ...label('iPad', 'landscape'),
   },
   {
-    width: 820,
-    height: 1180,
-    type: 'tablet',
-    message: label('iPad', 'portrait'),
+    ...screen(820, 1180, 'tablet'),
+    ...label('iPad', 'portrait'),
   },
   {
-    width: 844,
-    height: 390,
-    type: 'mobile',
-    message: label('iPhone', 'landscape'),
+    ...screen(844, 390, 'mobile'),
+    ...label('iPhone', 'landscape'),
   },
   {
-    width: 390,
-    height: 844,
-    type: 'mobile',
-    message: label('iPhone', 'portrait'),
+    ...screen(390, 840, 'mobile'),
+    ...label('iPhone', 'portrait'),
   },
 ];
