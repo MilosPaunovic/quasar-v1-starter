@@ -2,7 +2,7 @@
   "name": "starter",
   "productName": "ExampleName",
   "description": "ExampleDescription.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "homepage": "https://github.com/MilosPaunovic/quasar-v1-starter#readme",
   "bugs": {
     "url": "https://github.com/MilosPaunovic/quasar-v1-starter/issuess"
@@ -36,16 +36,16 @@
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
-    "@sentry/tracing": "^6.19.3",
-    "@sentry/vue": "^6.19.3",
+    "@sentry/tracing": "^6.19.4",
+    "@sentry/vue": "^6.19.4",
     "axios": "^0.26.1",
     "core-js": "^3.21.1",
-    "quasar": "^1.18.8"
+    "quasar": "^1.18.9"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
-    "@quasar/app": "^2.2.11",
-    "@quasar/extras": "^1.13.4",
+    "@quasar/app": "^2.2.12",
+    "@quasar/extras": "^1.13.5",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.2",
     "chalk": "^5.0.1",
@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-webpack-plugin": "^2.4.0",
-    "inquirer": "^7.3.3",
+    "inquirer": "^8.2.2",
     "replace-in-file": "^6.3.2"
   },
   "browserslist": [
