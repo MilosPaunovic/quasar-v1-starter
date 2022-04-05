@@ -2,9 +2,14 @@ describe('PAGES: Settings', () => {
   Cypress.env('RESOLUTIONS').forEach((resolution) => {
     context(resolution.message, () => {
       before(() => cy.viewport(resolution.width, resolution.height));
-      beforeEach(() => cy.logout());
+      beforeEach(() => {
+        cy.logout();
+        cy.bypassLogin('settings');
+      });
 
-      it('Test route /settings', () => { });
+      it('Test route /settings', () => {
+        cy.testRoute('settings');
+      });
 
       it('Check if there is a color mode toggle in header on settings page', () => { });
 
