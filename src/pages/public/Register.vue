@@ -13,7 +13,7 @@
       label="Name"
       :rules="[(val) => validations.required(val, 'Name')]"
       class="q-pt-md"
-      data-cy="register__name"
+      data-cy="register-name-input"
     />
     <Input
       name="email"
@@ -26,7 +26,7 @@
         (val) => validations.email(val),
       ]"
       class="q-pt-md"
-      data-cy="register__email"
+      data-cy="register-email-input"
     />
     <Input
       name="password"
@@ -40,14 +40,14 @@
         (val) => validations.password(val),
       ]"
       class="q-pt-md"
-      data-cy="register__password"
+      data-cy="register-password-input"
     >
       <template v-slot:append>
         <q-icon
           @click="passwordVisible = !passwordVisible"
           :name="passwordVisible ? icons.visibilityOff : icons.visibility"
           class="cursor-pointer"
-          data-cy="register__password_visibility"
+          data-cy="register-password-visibility-toggle"
         />
       </template>
     </Input>
@@ -56,7 +56,7 @@
         <router-link
           :to="{ name: 'Login' }"
           class="cursor-pointer text-primary"
-          data-cy="register__login_redirect"
+          data-cy="register-login-link"
         >
           <span>Have credentials?</span>
         </router-link>
@@ -67,7 +67,7 @@
           @click="submit"
           :loading="isLoading"
           label="Register"
-          data-cy="register__button"
+          data-cy="register-submit-button"
         />
       </div>
     </div>

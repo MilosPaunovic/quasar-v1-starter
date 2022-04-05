@@ -8,7 +8,7 @@
     false-value="light"
     :color="modeClasses({ colors: ['primary', 'dark'] })"
     keep-color
-    data-cy="dark_toggle__toggle"
+    data-cy="dark-mode-toggle"
   />
 </template>
 

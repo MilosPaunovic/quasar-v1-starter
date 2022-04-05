@@ -6,7 +6,7 @@
     exact
     active-class="text-primary"
     class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-2"
-    data-cy="mobile_menu__link"
+    data-cy="mobile-menu-link"
   >
     <q-item-section class="link">{{ label }}</q-item-section>
   </q-item>

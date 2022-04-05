@@ -26,12 +26,8 @@
 
 Cypress.Commands.add(
   'dataCy',
-  {
-    prevSubject: 'optional',
-  },
-  (subject, value) => cy.get(`[data-cy=${value}]`, {
-    withinSubject: subject,
-  }),
+  { prevSubject: 'optional' },
+  (subject, value) => cy.get(`[data-cy=${value}]`, { withinSubject: subject }),
 );
 
 Cypress.Commands.add('testRoute', (route) => {
@@ -62,33 +58,45 @@ Cypress.Commands.add('restoreLocalStorage', () => {
 });
 
 Cypress.Commands.add('login', (email, password) => {
-  if (email) cy.dataCy('login__email').type(email);
-  else cy.dataCy('login__email').clear();
+  if (email) cy.dataCy('login-email-input').type(email);
+  else cy.dataCy('login-email-input').clear();
 
-  if (password) cy.dataCy('login__password').type(password);
-  else cy.dataCy('login__password').clear();
+  if (password) cy.dataCy('login-password-input').type(password);
+  else cy.dataCy('login-password-input').clear();
 
-  if (email && password) cy.dataCy('login__password').click();
+  if (email && password) cy.dataCy('login-submit-button').click();
 });
 
 Cypress.Commands.add('register', (name, email, password) => {
-  if (name) cy.dataCy('register__name').type(name);
-  else cy.dataCy('register__name').clear();
+  if (name) cy.dataCy('register-name-input').type(name);
+  else cy.dataCy('register-name-input').clear();
 
-  if (email) cy.dataCy('register__email').type(email);
-  else cy.dataCy('register__email').clear();
+  if (email) cy.dataCy('register-email-input').type(email);
+  else cy.dataCy('register-email-input').clear();
 
-  if (password) cy.dataCy('register__password').type(password);
-  else cy.dataCy('register__password').clear();
+  if (password) cy.dataCy('register-password-input').type(password);
+  else cy.dataCy('register-password-input').clear();
 
-  if (email && password) cy.dataCy('register__button').click();
+  if (name && email && password) cy.dataCy('register-submit-button').click();
 });
 
 Cypress.Commands.add('forgotPassword', (email) => {
-  if (email) cy.dataCy('forgot_password__email').type(email);
-  else cy.dataCy('forgot_password__email').clear();
+  if (email) cy.dataCy('forgot-password-email-input').type(email);
+  else cy.dataCy('forgot-password-email-input').clear();
 
-  if (email) cy.dataCy('forgot_password__email').click();
+  if (email) cy.dataCy('forgot-password-submit-button').click();
+});
+
+const USER_KEY = 'user';
+Cypress.Commands.add('bypassLogin', (route = 'home') => {
+  cy.fixture(`${Cypress.env('ENVIRONMENT')}/auth`).then((auth) => {
+    localStorage.setItem(USER_KEY, JSON.stringify({
+      email: auth.user.email,
+      password: auth.user.password,
+    }));
+
+    cy.visit(`/${route}`);
+  });
 });
 
 Cypress.Commands.add('logout', () => {

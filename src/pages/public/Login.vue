@@ -11,7 +11,7 @@
         (val) => validations.email(val),
       ]"
       class="q-pt-md"
-      data-cy="login__email"
+      data-cy="login-email-input"
     />
     <Input
       name="password"
@@ -22,14 +22,14 @@
       label="Password"
       :rules="[(val) => validations.required(val, 'Password')]"
       class="q-pt-md"
-      data-cy="login__password"
+      data-cy="login-password-input"
     >
       <template v-slot:append>
         <q-icon
           @click="passwordVisible = !passwordVisible"
           :name="passwordVisible ? icons.visibilityOff : icons.visibility"
           class="cursor-pointer"
-          data-cy="login__password_visibility"
+          data-cy="login-password-visibility-toggle"
         />
       </template>
     </Input>
@@ -39,14 +39,14 @@
           <router-link
             :to="{ name: 'Register' }"
             class="col-12 cursor-pointer text-primary"
-            data-cy="login__register_redirect"
+            data-cy="login-register-link"
           >
             <span>Don't have an account?</span>
           </router-link>
           <router-link
             :to="{ name: 'ForgotPassword' }"
             class="col-12 cursor-pointer text-primary"
-            data-cy="login__forgot_password_redirect"
+            data-cy="login-forgot-password-link"
           >
             <span>Forgot password?</span>
           </router-link>
@@ -58,7 +58,7 @@
           @click="submit"
           :loading="isLoading"
           label="Log in"
-          data-cy="login__button"
+          data-cy="login-submit-button"
         />
       </div>
     </div>

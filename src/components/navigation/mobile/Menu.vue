@@ -11,7 +11,7 @@
       :icon="icons.close"
       flat
       :color="modeClasses()"
-      data-cy="mobile_menu__close_button"
+      data-cy="mobile-menu-close-button"
     />
     <q-list class="row full-width fixed-center">
       <Link
