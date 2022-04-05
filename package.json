@@ -36,7 +36,7 @@
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
-    "@sentry/tracing": "^6.19.3",
+    "@sentry/tracing": "^6.19.4",
     "@sentry/vue": "^6.19.3",
     "axios": "^0.26.1",
     "core-js": "^3.21.1",
@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-webpack-plugin": "^2.4.0",
-    "inquirer": "^7.3.3",
+    "inquirer": "^8.2.2",
     "replace-in-file": "^6.3.2"
   },
   "browserslist": [
