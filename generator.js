@@ -6,9 +6,11 @@ const { version } = require('./package.json');
 
 const logger = (text, color = 'green') => console.log(chalk[color](text));
 
-const base = './variables/.env.';
+const base = './variables/.env';
+fs.writeFile(base, '', (err) => err);
+
 const generateFiles = (env) => {
-  fs.copyFile(`${base}example`, `${base}${env}`, (error) => {
+  fs.copyFile(`${base}example`, `${base}.${env}`, (error) => {
     if (error) logger(`Setting ${env} environment file caused an error: ${error}`, 'red');
     replace({ files: [`${base}${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
       .catch(() => logger(`Replacing value of ${env} environment variable caused an error`, 'red'));
