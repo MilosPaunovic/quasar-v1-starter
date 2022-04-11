@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepare:all": "npm i @quasar/cli && npm i --legacy-peer-deps && node generator.js",
+    "prepare:all": "npm i --legacy-peer-deps && node generator.js",
     "postprepare:all": "npm uninstall chalk inquirer replace-in-file",
     "lint": "eslint . --ext .js,.vue --fix",
     "test:e2e:local": "cross-env ENVIRONMENT=local ./node_modules/.bin/cypress open",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
     "@quasar/app": "^2.3.0",
+    "@quasar/cli": "^1.3.2",
     "@quasar/extras": "^1.13.5",
     "@quasar/quasar-app-extension-testing": "^1.0.5",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.2",
