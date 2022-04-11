@@ -10,9 +10,9 @@ const base = './variables/.env';
 fs.writeFile(base, '', (err) => err);
 
 const generateFiles = (env) => {
-  fs.copyFile(`${base}example`, `${base}.${env}`, (error) => {
+  fs.copyFile(`${base}.example`, `${base}.${env}`, (error) => {
     if (error) logger(`Setting ${env} environment file caused an error: ${error}`, 'red');
-    replace({ files: [`${base}${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
+    replace({ files: [`${base}.${env}`], from: 'ENVIRONMENT =', to: `ENVIRONMENT = ${env}` })
       .catch(() => logger(`Replacing value of ${env} environment variable caused an error`, 'red'));
   });
 };
@@ -65,12 +65,25 @@ inquirer.prompt(questions)
     if (answers.dependabot === 'yes') {
       fs.rmSync('.github', { recursive: true, force: true });
     }
+  })
+  .then(() => {
+    replace({
+      files: ['./README.md'],
+      processor: (input) => {
+        const lines = input.split('\n');
 
-    logger('\n\nCongrats! Now you can start developing your awesome application!\n\n');
+        lines.splice(3, 7);
+
+        return lines.join('\n');
+      },
+    }).catch((error) => logger(`Setting version caused an error: ${error}`, 'red'));
   })
   .catch((error) => {
     if (error.isTtyError) logger('Prompt couldn\'t be rendered in the current environment.', 'red');
     else logger(`An error occurred: ${error}`, 'red');
+  })
+  .finally(() => {
+    logger('\n\nCongrats! Now you can start developing your awesome application!\n\n');
   });
 
 fs.rmSync('generator.js', { recursive: true, force: true });
