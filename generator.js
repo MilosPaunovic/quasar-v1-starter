@@ -40,10 +40,10 @@ const questions = [
   {
     type: 'list',
     name: 'dependabot',
-    message: 'Do you wish to disable Dependabot version updates?',
-    choices: ['No', 'Yes'],
+    message: 'Do you wish to enable Dependabot version updates?',
+    choices: ['Yes', 'No'],
     filter: (val) => val.toLowerCase(),
-    default: 'No',
+    default: 'Yes',
   },
 ];
 
@@ -62,7 +62,7 @@ inquirer.prompt(questions)
       logger(`Inputted version number does not comply with semantic versioning scheme; used default ${version}`, 'yellow');
     }
 
-    if (answers.dependabot === 'yes') {
+    if (answers.dependabot === 'no') {
       fs.rmSync('.github', { recursive: true, force: true });
     }
   })
