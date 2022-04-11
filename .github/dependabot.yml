@@ -13,6 +13,6 @@ updates:
       timezone: "Europe/Belgrade"
     ignore:
       - dependency-name: "*quasar*"
-        update-types: ["version-update:semver-major"]    
-      - dependency-name: "cypress"
-        update-types: ["version-update:semver-major"]    
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "chalk"
+        update-types: ["version-update:semver-major"]
