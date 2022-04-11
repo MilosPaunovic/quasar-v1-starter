@@ -40,7 +40,7 @@
     "@sentry/vue": "^6.19.6",
     "axios": "^0.26.1",
     "core-js": "^3.21.1",
-    "quasar": "^1.18.9"
+    "quasar": "^1.18.10"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
