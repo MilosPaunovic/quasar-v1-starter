@@ -78,12 +78,14 @@ inquirer.prompt(questions)
     }
   })
   .then(() => {
+    const helper = ['', '### Install the dependencies', '', '```bash', 'npm i --legacy-peer-deps', '```'];
+
     replace({
       files: ['./README.md'],
       processor: (input) => {
         const lines = input.split('\n');
 
-        lines.splice(3, 7);
+        lines.splice(3, 7, ...helper);
 
         return lines.join('\n');
       },
