@@ -64,6 +64,17 @@ inquirer.prompt(questions)
 
     if (answers.dependabot === 'no') {
       fs.rmSync('.github', { recursive: true, force: true });
+    } else {
+      replace({
+        files: ['./.github/dependabot.yml'],
+        processor: (input) => {
+          const lines = input.split('\n');
+
+          lines.splice(18, 19);
+
+          return lines.join('\n');
+        },
+      }).catch((error) => logger(`Removing unnecessary line from dependabot caused an error: ${error}`));
     }
   })
   .then(() => {

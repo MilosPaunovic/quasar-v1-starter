@@ -14,7 +14,7 @@ updates:
     ignore:
       - dependency-name: "*quasar*"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "chalk"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "eslint-webpack-plugin"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "chalk"
         update-types: ["version-update:semver-major"]
