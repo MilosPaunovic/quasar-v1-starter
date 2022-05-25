@@ -39,7 +39,7 @@
     "@sentry/tracing": "^6.19.7",
     "@sentry/vue": "^6.19.7",
     "axios": "^0.27.2",
-    "core-js": "^3.22.5",
+    "core-js": "^3.22.7",
     "quasar": "^1.18.10"
   },
   "devDependencies": {
