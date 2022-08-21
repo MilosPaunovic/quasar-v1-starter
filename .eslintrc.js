@@ -67,6 +67,7 @@ module.exports = {
     'prefer-promise-reject-errors': 'off',
     'func-names': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-reserved-component-names': 'off',
 
     // Allow console only during development
     'no-console': PRODUCTION ? 'error' : 'off',
