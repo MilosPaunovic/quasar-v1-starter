@@ -52,7 +52,7 @@
     "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "cypress": "^9.7.0",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-cypress": "^2.11.1",
