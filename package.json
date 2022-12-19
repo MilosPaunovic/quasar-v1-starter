@@ -38,7 +38,7 @@
   "dependencies": {
     "@sentry/tracing": "^7.21.1",
     "@sentry/vue": "^7.24.2",
-    "axios": "^1.2.0",
+    "axios": "^1.2.1",
     "core-js": "^3.26.1",
     "quasar": "^1.22.2"
   },
