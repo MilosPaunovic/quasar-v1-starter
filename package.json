@@ -36,7 +36,7 @@
     "build:production": "cross-env ENVIRONMENT=production quasar build"
   },
   "dependencies": {
-    "@sentry/tracing": "^7.21.1",
+    "@sentry/tracing": "^7.54.0",
     "@sentry/vue": "^7.50.0",
     "axios": "^1.2.2",
     "core-js": "^3.30.1",
